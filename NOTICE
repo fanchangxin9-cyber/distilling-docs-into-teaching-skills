@@ -1,0 +1,49 @@
+distilling-docs-into-teaching-skills
+Copyright 2026 fanchangxin9-cyber
+
+本作品采用 Apache License 2.0 授权，全文见 LICENSE。
+
+================================================================
+派生说明（Apache License 2.0 第 4(b) 条要求声明改动）
+================================================================
+
+本作品派生自 qiuzhi-skill-creator（Apache License 2.0），
+后者派生自 Anthropic 的 skill-creator。
+
+相对上游的主要改动：
+
+1. 产出目标变更
+   从「生成通用 Skill」改为「生成教学型 Skill（AI 老师）」，
+   留删标准、验收标准、自检项全部按教学语境重写。
+
+2. references/distillation-rules.md —— 重写
+   上游的「七类必留信息」（阈值、I/O 契约、组织约定…）适用于执行型 Skill；
+   本版改为教学型：先修依赖、常见误解、具体例子、为什么这么设计。
+   新增「执行型 vs 教学型」的判断对照表。
+
+3. references/teaching-skill-template.md —— 新增
+   教学 Skill 的标准结构：老师 SKILL.md 骨架、教学六段流程、
+   检查点设计（默认选择题，按考点分单选/多选/判断）、
+   示范模式（说→做→看→跑 + 老师做一段/学员跟一段）、
+   实战作业分类（讲述类给选项 / 动手类必须完成）、反模式。
+
+4. references/parsing-notes.md —— 新增
+   各类文档解析的坑：多栏、页眉页脚、文本框、扫描件、加密。
+
+5. references/skill-authoring.md —— 派生并调整
+   保留上游的 frontmatter 硬性约束与渐进式披露规则；
+   新增教学 Skill 的命名例外与正文结构说明。
+
+6. scripts/convert_to_markdown.py —— 重写
+   上游无此脚本。本版实现：PDF/Word/图片 → markdown；
+   中文字体 ToUnicode 缺失导致的乱码自动检测（可疑字符占比 > 10%）
+   与整页视觉回退；扫描件识别；sha256 增量缓存。
+
+7. scripts/init_skill.py —— 派生并改造
+   骨架模板从通用 Skill 改为教学 Skill，内建检查点、示范模式、
+   实战作业三套机制。
+
+8. scripts/validate_output.py —— 派生并扩展
+   保留上游的 frontmatter/命名/描述校验；
+   新增教学专项强制检查（选择题检查点、示范模式、作业分类、
+   课程地图与先修依赖）、来源与版权标识扫描、占位符残留检测。

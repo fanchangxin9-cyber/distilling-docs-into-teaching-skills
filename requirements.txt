@@ -1,0 +1,7 @@
+# 文档解析依赖 —— 用于 scripts/convert_to_markdown.py
+# 安装：python -m pip install -r requirements.txt
+pymupdf>=1.24
+python-docx>=1.1
+
+# 用于 scripts/validate_output.py 校验 frontmatter
+pyyaml>=6.0

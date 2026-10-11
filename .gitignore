@@ -1,0 +1,14 @@
+# 解析中间产物（含源文档抽取结果与渲染出的页面图片，体积大且是本地产物）
+.distill/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# 编辑器
+.vscode/
+.idea/
+*.swp
+.DS_Store
